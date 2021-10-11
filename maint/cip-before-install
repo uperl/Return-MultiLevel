@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -ex
+
+cip exec cpanm -n Pod::Markdown Test::Pod
