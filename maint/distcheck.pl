@@ -16,17 +16,7 @@ my @errors;
 my $version_suffix = '';
 if ($version =~ /(-TRIAL[0-9]*)\z/) {
     $version_suffix = $1;
-} elsif ($version !~ /_/) {
-    my $file = 'Changes';
-    my $contents = slurp $file;
-
-    $contents =~ m{
-        \n
-        \n
-        \Q$version\E \s+ \d{4}-\d{2}-\d{2} \n
-        [^\n\w]* \w
-    }x or push @errors, "$file doesn't seem to contain an entry for $version";
-}
+} 
 
 for my $module (@modules) {
     my $contents = slurp $module;

@@ -57,9 +57,9 @@ The following functions are available (and can be imported on demand).
 
 # DEBUGGING
 
-This module uses [`unwind`](https://metacpan.org/pod/Scope::Upper#unwind) from
-[`Scope::Upper`](https://metacpan.org/pod/Scope::Upper) to do its work. If
-[`Scope::Upper`](https://metacpan.org/pod/Scope::Upper) is not available, it substitutes its own pure
+This module uses [`unwind`](https://metacpan.org/pod/Scope%3A%3AUpper#unwind) from
+[`Scope::Upper`](https://metacpan.org/pod/Scope%3A%3AUpper) to do its work. If
+[`Scope::Upper`](https://metacpan.org/pod/Scope%3A%3AUpper) is not available, it substitutes its own pure
 Perl implementation. You can force the pure Perl version to be used regardless
 by setting the environment variable `RETURN_MULTILEVEL_PP` to 1.
 
