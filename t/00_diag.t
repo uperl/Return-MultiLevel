@@ -11,7 +11,6 @@ my $post_diag;
 
 $modules{$_} = $_ for qw(
   Carp
-  Data::Munge
   Exporter
   ExtUtils::MakeMaker
   Scope::Upper
