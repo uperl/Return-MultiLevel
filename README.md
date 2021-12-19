@@ -1,4 +1,6 @@
-# Return::MultiLevel
+# Return::MultiLevel ![static](https://github.com/uperl/Return-MultiLevel/workflows/static/badge.svg) ![linux](https://github.com/uperl/Return-MultiLevel/workflows/linux/badge.svg)
+
+Return across multiple call levels
 
 # SYNOPSIS
 
@@ -53,12 +55,6 @@ The following functions are available (and can be imported on demand).
     It is an error to invoke `$return` after its surrounding _BLOCK_ has finished
     executing. In particular, it is an error to call `$return` twice.
 
-# NAME
-
-Return::MultiLevel ![static](https://github.com/uperl/Return-MultiLevel/workflows/static/badge.svg) ![linux](https://github.com/uperl/Return-MultiLevel/workflows/linux/badge.svg)
-
-return across multiple call levels
-
 # DEBUGGING
 
 This module uses [`unwind`](https://metacpan.org/pod/Scope::Upper#unwind) from
@@ -72,43 +68,11 @@ something has called a `$return` from outside of its `with_return { ... }`
 block. You can get a stack trace of where that `with_return` was by setting
 the environment variable `RETURN_MULTILEVEL_DEBUG` to 1.
 
-# BUGS AND LIMITATIONS
+# CAVEATS
 
 You can't use this module to return across implicit function calls, such as
 signal handlers (like `$SIG{ALRM}`) or destructors (`sub DESTROY { ... }`).
 These are invoked automatically by perl and not part of the normal call chain.
-
-# SUPPORT AND DOCUMENTATION
-
-After installing, you can find documentation for this module with the
-[`perldoc`](https://metacpan.org/pod/perldoc) command.
-
-```
-perldoc Return::MultiLevel
-```
-
-You can also look for information at
-[https://metacpan.org/pod/Return::MultiLevel](https://metacpan.org/pod/Return::MultiLevel).
-
-To see a list of open bugs, visit
-[https://rt.cpan.org/Public/Dist/Display.html?Name=Return-MultiLevel](https://rt.cpan.org/Public/Dist/Display.html?Name=Return-MultiLevel).
-
-To report a new bug, send an email to
-`bug-Return-MultiLevel [at] rt.cpan.org`.
-
-# AUTHOR
-
-Lukas Mai, `<l.mai at web.de>`
-
-# COPYRIGHT & LICENSE
-
-Copyright 2013-2014 Lukas Mai.
-
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
-
-See [http://dev.perl.org/licenses/](http://dev.perl.org/licenses/) for more information.
 
 # AUTHORS
 
