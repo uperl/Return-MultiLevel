@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.07_01   2021-12-19 07:27:44 -0700
   - Remove the most uses of stringy eval (gh#6) One still remains
   - Remove dependency on Data::Munge (gh#6)
 
