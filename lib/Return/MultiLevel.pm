@@ -1,14 +1,13 @@
 package Return::MultiLevel;
 
-use warnings;
 use strict;
-
-our $VERSION = '0.06';
-
+use warnings;
+use 5.008001;
 use Carp qw(confess);
 use Data::Munge qw(eval_string);
 use parent 'Exporter';
 
+our $VERSION = '0.06';
 our @EXPORT_OK = qw(with_return);
 
 our $_backend;

@@ -1,6 +1,4 @@
-# NAME
-
-Return::MultiLevel - return across multiple call levels
+# Return::MultiLevel
 
 # SYNOPSIS
 
@@ -55,11 +53,17 @@ The following functions are available (and can be imported on demand).
     It is an error to invoke `$return` after its surrounding _BLOCK_ has finished
     executing. In particular, it is an error to call `$return` twice.
 
+# NAME
+
+Return::MultiLevel ![static](https://github.com/uperl/Return-MultiLevel/workflows/static/badge.svg) ![linux](https://github.com/uperl/Return-MultiLevel/workflows/linux/badge.svg)
+
+return across multiple call levels
+
 # DEBUGGING
 
-This module uses [`unwind`](https://metacpan.org/pod/Scope%3A%3AUpper#unwind) from
-[`Scope::Upper`](https://metacpan.org/pod/Scope%3A%3AUpper) to do its work. If
-[`Scope::Upper`](https://metacpan.org/pod/Scope%3A%3AUpper) is not available, it substitutes its own pure
+This module uses [`unwind`](https://metacpan.org/pod/Scope::Upper#unwind) from
+[`Scope::Upper`](https://metacpan.org/pod/Scope::Upper) to do its work. If
+[`Scope::Upper`](https://metacpan.org/pod/Scope::Upper) is not available, it substitutes its own pure
 Perl implementation. You can force the pure Perl version to be used regardless
 by setting the environment variable `RETURN_MULTILEVEL_PP` to 1.
 
@@ -79,7 +83,7 @@ These are invoked automatically by perl and not part of the normal call chain.
 After installing, you can find documentation for this module with the
 [`perldoc`](https://metacpan.org/pod/perldoc) command.
 
-```sh
+```
 perldoc Return::MultiLevel
 ```
 
@@ -105,3 +109,15 @@ under the terms of either: the GNU General Public License as published
 by the Free Software Foundation; or the Artistic License.
 
 See [http://dev.perl.org/licenses/](http://dev.perl.org/licenses/) for more information.
+
+# AUTHORS
+
+- Lukas Mai
+- Graham Ollis <plicease@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013,2014,2021 by Lukas Mai.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.

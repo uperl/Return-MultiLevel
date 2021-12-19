@@ -2,4 +2,6 @@
 
 set -ex
 
-cip exec cpanm -n Pod::Markdown Test::Pod
+if [[ ! -z "${INSTALL_MODULES}" ]]; then
+  cip exec cpanm -n Scope::Upper
+fi
