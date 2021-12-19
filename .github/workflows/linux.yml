@@ -16,25 +16,32 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cip_tag:
-          - "5.35"
-          - "5.34"
-          - "5.32"
-          - "5.30"
-          - "5.28"
-          - "5.26"
-          - "5.24"
-          - "5.22"
-          - "5.20"
-          - "5.18"
-          - "5.16"
-          - "5.14"
-          - "5.12"
-          - "5.10"
-#          - "5.8"
+        cip:
+          - tag: "5.35"
+            modules: Scope::Upper
+          - tag: "5.35"
+          - tag: "5.34"
+            modules: Scope::Upper
+          - tag: "5.34"
+          - tag: "5.32"
+          - tag: "5.30"
+          - tag: "5.28"
+          - tag: "5.26"
+          - tag: "5.24"
+          - tag: "5.22"
+          - tag: "5.20"
+          - tag: "5.18"
+          - tag: "5.16"
+          - tag: "5.14"
+          - tag: "5.12"
+          - tag: "5.10"
+          - tag: "5.8"
+            modules: Scope::Upper
+          - tag: "5.8"
 
     env:
-      CIP_TAG: ${{ matrix.cip_tag }}
+      CIP_TAG: ${{ matrix.cip.tag }}
+      INSTALL_MODULES: ${{ matrix.cip.modules }}
 
     steps:
       - uses: actions/checkout@v2
@@ -53,9 +60,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cip
-          key: ${{ runner.os }}-build-${{ steps.cache-key.outputs.key }}
+          key: ${{ runner.os }}-build-${{ steps.cache-key.outputs.key }}-${{ matrix.cip.modules }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ steps.cache-key.outputs.key }}
+            ${{ runner.os }}-build-${{ steps.cache-key.outputs.key }}-${{ matrix.cip.modules }}
 
       - name: Start-Container
         run: |
