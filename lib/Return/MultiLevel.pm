@@ -102,9 +102,7 @@ EOT
     $_backend = 'PP';
 }
 
-'ok'
-
-__END__
+1;
 
 =head1 SYNOPSIS
 
