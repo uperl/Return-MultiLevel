@@ -3,6 +3,15 @@ use warnings;
 use Test::More tests => 5;
 use Return::MultiLevel qw(with_return);
 
+diag '';
+diag '';
+diag '';
+
+diag "backend = @{[ $Return::MultiLevel::_backend ]}";
+
+diag '';
+diag '';
+
 is with_return {
     my ($ret) = @_;
     42
