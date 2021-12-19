@@ -7,7 +7,9 @@ use Carp qw(confess);
 use Data::Munge qw(eval_string);
 use parent 'Exporter';
 
-our $VERSION = '0.06';
+# ABSTRACT: Return across multiple call levels
+# VERSION
+
 our @EXPORT_OK = qw(with_return);
 
 our $_backend;
@@ -104,14 +106,6 @@ EOT
 
 __END__
 
-=encoding UTF-8
-
-=for highlighter language=perl
-
-=head1 NAME
-
-Return::MultiLevel - return across multiple call levels
-
 =head1 SYNOPSIS
 
   use Return::MultiLevel qw(with_return);
@@ -180,67 +174,10 @@ something has called a C<$return> from outside of its C<with_return { ... }>
 block. You can get a stack trace of where that C<with_return> was by setting
 the environment variable C<RETURN_MULTILEVEL_DEBUG> to 1.
 
-=head1 BUGS AND LIMITATIONS
+=head1 CAVEATS
 
 You can't use this module to return across implicit function calls, such as
 signal handlers (like C<$SIG{ALRM}>) or destructors (C<sub DESTROY { ... }>).
 These are invoked automatically by perl and not part of the normal call chain.
-
-=begin :README
-
-=head1 INSTALLATION
-
-To download and install this module, use your favorite CPAN client, e.g.
-L<C<cpan>|cpan>:
-
-=for highlighter language=sh
-
-    cpan Return::MultiLevel
-
-Or L<C<cpanm>|cpanm>:
-
-    cpanm Return::MultiLevel
-
-To do it manually, run the following commands (after downloading and unpacking
-the tarball):
-
-    perl Makefile.PL
-    make
-    make test
-    make install
-
-=end :README
-
-=head1 SUPPORT AND DOCUMENTATION
-
-After installing, you can find documentation for this module with the
-L<C<perldoc>|perldoc> command.
-
-=for highlighter language=sh
-
-    perldoc Return::MultiLevel
-
-You can also look for information at
-L<https://metacpan.org/pod/Return::MultiLevel>.
-
-To see a list of open bugs, visit
-L<https://rt.cpan.org/Public/Dist/Display.html?Name=Return-MultiLevel>.
-
-To report a new bug, send an email to
-C<bug-Return-MultiLevel [at] rt.cpan.org>.
-
-=head1 AUTHOR
-
-Lukas Mai, C<< <l.mai at web.de> >>
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2013-2014 Lukas Mai.
-
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
-
-See L<http://dev.perl.org/licenses/> for more information.
 
 =cut
